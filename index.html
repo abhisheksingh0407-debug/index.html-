@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      font-family:'Segoe UI',sans-serif;
+      color:#fff;
+      overflow:hidden;
+      text-align:center;
+    }
+    h1{font-size:38px;}
+    .type{
+      font-size:20px;
+      width:80%;
+      min-height:120px;
+    }
+    button{
+      margin-top:30px;
+      padding:15px 30px;
+      border:none;
+      border-radius:30px;
+      background:#fff;
+      color:#ff5e78;
+      font-size:18px;
+      cursor:pointer;
+    }
+    .heart{
+      position:absolute;
+      font-size:20px;
+      animation:float 6s linear infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(100vh);opacity:0;}
+      50%{opacity:1;}
+      100%{transform:translateY(-10vh);opacity:0;}
+    }
+    img{
+      width:120px;
+      margin:10px;
+      animation:floatImg 3s ease-in-out infinite;
+    }
+    @keyframes floatImg{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-15px);}
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hey Dodo ❤️</h1>
+<div class="type" id="text"></div>
+
+<div>
+  <img src="https://i.imgur.com/6RMhx.gif">
+  <img src="https://i.imgur.com/L9J0K.gif">
+</div>
+
+<button onclick="next()">Continue →</button>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+const msg = "Thank you for everything… for your love, care, patience and constant support. Even when things were hard, even when I wasn’t perfect… you never gave up on me. And that means more to me than words can ever express ❤️";
+let i=0;
+function type(){
+  if(i<msg.length){
+    document.getElementById("text").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+type();
+
+function next(){ window.location.href="page2.html"; }
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},400);
+</script>
+
+</body>
+</html>
