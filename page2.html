@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Always You ❤️</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      background:linear-gradient(135deg,#a18cd1,#fbc2eb);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      font-family:'Segoe UI',sans-serif;
+      color:white;
+      text-align:center;
+      overflow:hidden;
+    }
+    .type{
+      width:80%;
+      font-size:20px;
+      min-height:150px;
+    }
+    button{
+      margin-top:30px;
+      padding:15px 30px;
+      border:none;
+      border-radius:30px;
+      background:#fff;
+      color:#a4508b;
+      font-size:18px;
+    }
+    img{
+      width:130px;
+      animation:float 3s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-20px);}
+    }
+    .heart{
+      position:absolute;
+      animation:floatUp 5s linear infinite;
+    }
+    @keyframes floatUp{
+      from{bottom:-20px;opacity:0;}
+      to{bottom:100%;opacity:1;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="type" id="text"></div>
+
+<img src="https://i.imgur.com/8Km9t.gif">
+
+<button onclick="next()">One More →</button>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+</audio>
+
+<script>
+const msg="I truly appreciate everything you do for me… the care, the small efforts, the love you show every single day. I’m sorry for the moments when things went wrong recently. I’ve realized my mistakes, learned from them, and I promise to be better… for us ❤️";
+let i=0;
+function type(){
+  if(i<msg.length){
+    document.getElementById("text").innerHTML+=msg.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+type();
+function next(){window.location.href="page3.html";}
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+},500);
+</script>
+
+</body>
+</html>
